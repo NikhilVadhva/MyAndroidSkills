@@ -8,6 +8,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.d("TAG","Checking Commit")
+        Log.d("TAG","Checking Commit After Multiple GitHub Account")
     }
 }
