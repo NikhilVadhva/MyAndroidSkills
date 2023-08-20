@@ -10,7 +10,7 @@ class KotlinActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kotlin)
-        Log.d(TAG,"Checking Commit After Multiple GitHub Account in Kot")
+        Log.d(TAG,"Checking Commit After Multiple GitHub Account with my username")
 
     }
 }
