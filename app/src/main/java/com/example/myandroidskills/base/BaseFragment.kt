@@ -22,5 +22,4 @@ class BaseFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_commons_base, container, false)
     }
 
-
 }

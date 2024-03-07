@@ -7,16 +7,19 @@ plugins {
 
 android {
     namespace 'com.example.myandroidskills'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.myandroidskills"
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
     }
 
     buildTypes {
@@ -34,10 +37,30 @@ android {
     }
     buildFeatures {
         dataBinding true
+        compose true
+        viewBinding true
+    }
+
+    composeOptions
+            {
+                kotlinCompilerExtensionVersion = "1.4.0"
+            }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
     }
 }
 
 dependencies {
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+    implementation 'androidx.activity:activity-compose:1.8.2'
+    implementation platform('androidx.compose:compose-bom:2023.08.00')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation platform('androidx.compose:compose-bom:2023.08.00')
+    androidTestImplementation platform('androidx.compose:compose-bom:2023.08.00')
+    androidTestImplementation platform('androidx.compose:compose-bom:2023.08.00')
 
     // version name
     def lifecycle_version = "2.5.1"
@@ -55,10 +78,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-
     // Room Database
     implementation("androidx.room:room-runtime:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
+
     // Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:$room_version")
 
@@ -83,5 +106,23 @@ dependencies {
     implementation ("com.google.dagger:hilt-android:$hilt_version")
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
+
+    def composeBom = platform('androidx.compose:compose-bom:2023.10.01')
+    implementation composeBom
+    androidTestImplementation composeBom
+
+    // Material Design 3
+    implementation 'androidx.compose.material3:material3'
+
+    // Android Studio Preview support
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+
+    // UI Tests
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+    // An image loading library for Android backed by Kotlin Coroutines
+    implementation("io.coil-kt:coil-compose:2.5.0")
 
 }
